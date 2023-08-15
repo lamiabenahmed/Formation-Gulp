@@ -56,7 +56,7 @@
     }
   }
 
-  @include breakpoint(medium) {
+   @include breakpoint-down(medium) {
     display: none;
   }
 }

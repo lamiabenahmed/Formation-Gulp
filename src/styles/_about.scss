@@ -1,8 +1,20 @@
-section {
-    &.site-content,
-    &.site-custom {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
- 
- }
+section.about {
+  margin: 80px 0;
+  position: relative;
+
+  .title {
+    &.is-primary {
+        text-align: center;
+        font-size: 54px;
+
+        .green-first-word {
+            color: $color-1--1;
+        }  
+    }
+  }
+
+  .main-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

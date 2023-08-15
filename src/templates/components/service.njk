@@ -1,0 +1,61 @@
+{%- macro NavigationItem(
+	nameIcon = 'archery',
+	title = lorem(1, 'word'),
+	modifier = ''
+) -%}
+	<div class="navigation-item {{ modifier }}">
+		<a href="#" class="navigation-item__text">
+			<div class="navigation-item__svg-wrapper" aria-hidden="true">
+				<img src="images/{{nameIcon}}.svg" alt="">
+                
+			</div>
+			<span class="underline">{{ title }}</span>
+		</a>
+	</div>
+{%- endmacro -%}
+{%- macro NavigationsHome(titleText, settings = {}) -%}
+  {%- set defaultParams = {
+    itemsData: [
+      ['navigations1', 'UI/UX <span>Lorem ipsum</span>'],
+      ['navigations2', 'Bug searching <span>Lorem ipsum</span>'],
+      ['navigations3', 'Data science <span>Lorem ipsum</span>'],
+      ['navigations4', 'Webste dev <span>Lorem ipsum </span>'],
+      ['navigations5', '24/7 support<span>Lorem ipsum </span>']
+    ],
+    modifier: '',
+    type: 'list'
+  } -%}
+  {%- set params = defaultParams  %}
+  <section class="navigations">
+    <div class = "container">
+    <h2 class="ghost">{{ titleText }}</h2>
+    <div class="section__content">
+        {% if params.type === 'list' %}
+          <nav class="navigations__wrapper">
+            <ul class="navigations__list">
+              {% for link in params.itemsData %}
+                <li class="navigation-block__item">
+                  <a href="#">
+                    {{ NavigationItem(
+                      nameIcon = link[0],
+                      title = link[1]|safe
+                    ) }}
+                    
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+    </div>
+  </div>
+</section>
+{%- endmacro -%}
+
+
+
+{%- macro SvgIcon(iconName, width, height) -%}
+  <svg width="{{ width }}" height="{{ height }}" viewBox="0 0 {{ width }} {{ height }}">
+    <use xlink:href="#{{ iconName }}"></use>
+  </svg>
+{%- endmacro -%}
