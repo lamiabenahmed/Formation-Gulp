@@ -1,0 +1,8 @@
+section {
+    &.site-content,
+    &.site-custom {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+ 
+ }
+}

@@ -1,0 +1,35 @@
+{% macro headerContent() %}
+<header class="header">
+    <div class="container">
+      <div class="header__left">
+        <div class="logo">
+          <a href="index.njk"><img src="images/logo-1.png" height="29" width="80" alt=""></a>
+        </div>
+      </div>
+      <div class="header__right">
+          <div class="input-group">
+                 <input class="form-control" type="text" placeholder="Search..." aria-label="Search">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        <a href="#" id="mobile-menu-trigger" class="header__right_mobile-menu-trigger"><i class="fas fa-bars"></i></a>
+       <ul class="nav">
+        {% set kMainNavBottom = [
+          { 'text': 'About us', 'link': '#', 'active': true },
+          { 'text': 'Services', 'link': '#' },
+          { 'text': 'News', 'link': '#', 'disabled': true },
+          { 'text': 'Events', 'link': '#', 'disabled': true }
+        ] %}
+        {% for item in kMainNavBottom %}
+          <li class="nav__item{% if item.active %} active{% endif %}{% if item.disabled %} disabled{% endif %}">
+            <a class="nav-link" href="{{ item.link }}">{{ item.text }}{% if item.active %} <span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      </div>
+    </div>
+  </header>
+{% endmacro %}

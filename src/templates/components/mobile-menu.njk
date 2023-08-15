@@ -1,0 +1,31 @@
+{#
+ mobileMenu
+#}
+{% macro mobileMenu() %}
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#" class="mobile-menu__close" id="mobile-menu-close">Close <i class="fas fa-long-arrow-alt-right"></i></a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+{% endmacro %}
+
+{#
+ introSection
+#}
+
+{%- macro introSection(introTitle, introSubtitle, introButtonText) %}
+  <section class="intro" style="background-image: url(images/slider.jpg);">
+    <div class="container">
+      <div class="intro__content">
+        <h6>{{ introTitle }}</h6>
+        <h1>{{ introSubtitle }}</h1>
+      </div>
+    </div>
+  </section>
+{%- endmacro %}

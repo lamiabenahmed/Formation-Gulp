@@ -1,0 +1,51 @@
+{% macro imageWithDescription(imageSrc, imageAlt, imageCaption, mainContentText, mainContentText2) %}
+  <div class="container">
+    {% set titre = "Bienvenue sur notre site Web" %}
+    <h2>{{ titre }}</h2>
+    <section class="site-content">
+      <div class="custom-wrapper is-image">
+        <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+          <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+            <picture>
+              <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+            </picture>
+          </a>
+        </figure>
+      </div>
+      <div class="custom-wrapper is-main">
+        <div class="rte">
+          {{ mainContent('<h2>At vero eos et accusam et justo duo dolores et ea rebum.</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro imageCustom(imageSrc, imageAlt, imageCaption, mainContentText, mainContentText2) %}
+  <div class="container">
+    <section class="site-custom">
+      <div class="custom-wrapper is-main">
+        <div class="rte">
+          {{ mainContent('<h2>Stet clita kasd gubergren, no sea takimata sanctus est</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
+        </div>
+      </div>
+      <div class="custom-wrapper is-image">
+        <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+          <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+            <picture>
+              <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+            </picture>
+          </a>
+        </figure>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro mainContent(content) %}
+  <div class="site-content is-main">
+    <div class="rte">
+      {{ content | safe }}
+    </div>
+  </div>
+{% endmacro %}

@@ -1,0 +1,244 @@
+:root {
+  --color-1--1: #156F66;
+  --color-1--2: #000;
+  --color-1--3: #fff;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins.woff2") format("woff2"), url("../fonts/poppins.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+h1 {
+  color: blue;
+}
+
+.container {
+  max-width: 1162px;
+  padding: 0 18px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  font-family: var(--typo-1);
+  color: #000;
+  font-weight: normal;
+}
+
+h1 {
+  color: blue;
+}
+
+.header {
+  padding: 13px 0;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 0 5px #156F66;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__right {
+  display: flex;
+  align-items: center;
+}
+.header__right_mobile-menu-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .header__right_mobile-menu-trigger {
+    display: block;
+  }
+}
+.header__right .input-group {
+  border-radius: 50px;
+  border: 1px solid #156F66;
+}
+@media (max-width: 768px) {
+  .header__right .input-group {
+    display: none;
+  }
+}
+.header__right .input-group .form-control {
+  padding: 17px;
+  border-radius: 50px;
+  border: none;
+  width: 147px;
+}
+.header__right .input-group .btn-outline-secondary {
+  background: transparent;
+  border: none;
+  padding-right: 30px;
+}
+.header__right .input-group::placeholder {
+  border: none;
+}
+.header__left .logo {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1 0 100px;
+  min-height: 29px;
+  padding: 0;
+}
+
+.intro {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 770px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: #000;
+  opacity: 1;
+  background: transparent linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #111111 100%) 0% 0% no-repeat padding-box;
+}
+.intro__content {
+  position: absolute;
+  bottom: 80px;
+  left: 200px;
+  z-index: 1;
+  text-align: center;
+}
+.intro__content h6 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 45px;
+  text-align: left;
+}
+.intro__content h1 {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background-color: #156F66;
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #156F66;
+  z-index: 999;
+  transition: right 0.3s ease;
+}
+.mobile-menu__close {
+  display: block;
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.mobile-menu__close i {
+  margin-left: 10px;
+}
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.mobile-menu ul li {
+  border-bottom: 1px solid #fff;
+}
+.mobile-menu ul li a {
+  padding: 20px;
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .mobile-menu {
+    right: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+.nav--light .nav__item a {
+  color: #000;
+}
+.nav--lg .nav__item a {
+  font-size: 16px;
+  text-transform: none;
+}
+.nav__item {
+  margin-left: 40px;
+}
+.nav__item a {
+  display: block;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: none;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  padding: 5px 0;
+  backface-visibility: hidden;
+}
+.nav__item a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 0px;
+  height: 1px;
+  background-color: #156F66;
+  content: "";
+}
+.nav__item a:hover {
+  color: #000;
+}
+.nav__item a:hover::after {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
+
+section.site-content, section.site-custom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

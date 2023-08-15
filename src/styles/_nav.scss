@@ -1,0 +1,62 @@
+.nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+
+  &--light {
+
+    .nav__item {
+
+      a {
+        color: $color-1--2;
+      }
+    }
+  }
+
+  &--lg {
+    
+    .nav__item {
+
+      a {
+        font-size: 16px;
+        text-transform: none;
+      }
+    }
+  }
+
+  &__item {
+    margin-left: 40px;
+
+    a {
+      display: block;
+      font-size: 16px;
+      line-height: 1.2;
+      text-transform: none;
+      text-decoration: none;
+      color: $color-1--2;
+      position: relative;
+      padding: 5px 0;
+      backface-visibility: hidden;
+
+      &::after {
+        @include absolute( null, 0, 0, 0);
+        @include size(0px, 1px);
+        background-color: $color-1--1;
+        content: '';
+      }
+
+      &:hover {
+        color: $color-1--2;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+}

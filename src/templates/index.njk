@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{%- from 'components/header.njk' import headerContent -%}
+{%- from "components/mobile-menu.njk" import mobileMenu,introSection -%}
+{%- from "components/about.njk" import imageWithDescription,imageCustom -%}
+<link rel="stylesheet" href="styles/core.css">
+{# 
+
+content
+
+#}
+{% block content %}
+{{ headerContent() }}
+{{ mobileMenu() }}
+{{ introSection("H1 Lorem ipsum dolor sit", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.") }}
+{{ imageWithDescription(
+   "//ph.stratis.pro/img/380/300/E0E0E0",
+   "[IMAGE ALT]"
+) }}
+{{ imageCustom ( "//ph.stratis.pro/img/380/300/E0E0E0",
+   "[IMAGE ALT]")}}
+{% endblock %}
+
+

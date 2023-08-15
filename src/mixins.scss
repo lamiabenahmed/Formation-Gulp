@@ -1,0 +1,51 @@
+// mixins.scss
+
+@mixin absolute($top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+  }
+  // mixins.scss
+
+$breakpoints: (
+    small: 576px,
+    medium: 768px,
+    large: 992px,
+    xlarge: 1200px,
+  );
+  
+  @mixin breakpoint($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-down($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+ // Mixin pour le style des icônes Font Awesome
+@mixin fa-icon-style-center() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+@mixin fa-icon-style-start() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  vertical-align: middle;
+}
+
+  
