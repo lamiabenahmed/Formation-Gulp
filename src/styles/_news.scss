@@ -1,0 +1,30 @@
+section.news {
+  position: relative;
+
+  .swiper {
+    width: 100%;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: -30px;
+      padding: 30px;
+      position: relative;
+      z-index: 100;
+      text-align: center;
+
+      .image {
+        height: 300px;
+        width: 326px;
+        padding: 3px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

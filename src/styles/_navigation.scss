@@ -1,0 +1,19 @@
+.navigations {
+  position: relative;
+
+  .section__content {
+    .navigations__wrapper {
+      .navigations__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+
+        .navigation-block {
+          &__item {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+}

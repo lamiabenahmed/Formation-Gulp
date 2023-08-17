@@ -6,7 +6,7 @@
 	<div class="navigation-item {{ modifier }}">
 		<a href="#" class="navigation-item__text">
 			<div class="navigation-item__svg-wrapper" aria-hidden="true">
-				<img src="images/{{nameIcon}}.svg" alt="">
+				<img src="images/{{nameIcon}}.svg" alt="" width="60" height="60">
                 
 			</div>
 			<span class="underline">{{ title }}</span>
@@ -16,11 +16,11 @@
 {%- macro NavigationsHome(titleText, settings = {}) -%}
   {%- set defaultParams = {
     itemsData: [
-      ['navigations1', 'UI/UX <span>Lorem ipsum</span>'],
-      ['navigations2', 'Bug searching <span>Lorem ipsum</span>'],
-      ['navigations3', 'Data science <span>Lorem ipsum</span>'],
-      ['navigations4', 'Webste dev <span>Lorem ipsum </span>'],
-      ['navigations5', '24/7 support<span>Lorem ipsum </span>']
+      ['navigations1', 'UI/UX <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Bug searching <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Data science <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Webste dev <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', '24/7 support<span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor </span>']
     ],
     modifier: '',
     type: 'list'

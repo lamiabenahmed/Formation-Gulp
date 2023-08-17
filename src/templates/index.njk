@@ -1,7 +1,8 @@
 {%- from 'components/header.njk' import headerContent -%}
 {%- from "components/mobile-menu.njk" import mobileMenu,introSection -%}
 {%- from "components/about.njk" import combinedImageMacro -%}
-{%- from "components/service.njk" import NavigationsHome -%}
+{%- from "components/navigation.njk" import NavigationsHome -%}
+{%- from "components/news.njk" import swiperCarousel -%}
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -10,6 +11,8 @@
       <title>Document</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
       <link rel="stylesheet" href="styles/core.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
    </head>
    <body>
       {% block content %}
@@ -17,8 +20,20 @@
          {{ mobileMenu() }}
          {{ introSection("H1 Lorem ipsum dolor sit", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.") }}
          {{ combinedImageMacro("//ph.stratis.pro/img/380/300/E0E0E0","[IMAGE ALT]") }}
-         {{ NavigationsHome ()}}
+         {{ NavigationsHome () }}
+        {{ swiperCarousel([
+    "Slide 1",
+    "Slide 2",
+    "Slide 3",
+    "Slide 4",
+    "Slide 5",
+    "Slide 6",
+    "Slide 7",
+    "Slide 8"
+  ]) }}
       {% endblock %}
-  <script src="main.js"></script>
+      <script src="main.js"></script>
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
    </body>
 </html>

@@ -31,14 +31,24 @@ if (mobileMenuClose) {
   });
 }
 
-const nunjucks = require('nunjucks');
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
 
-// Configurer l'environnement Nunjucks
-const env = nunjucks.configure({
-  // ... autres options de configuration ...
-});
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
 
-// Enregistrer la macro SvgIcon
-env.addGlobal('SvgIcon', (iconName, width, height) => {
-  return env.renderString(macro_SvgIcon, { iconName, width, height });
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
 });

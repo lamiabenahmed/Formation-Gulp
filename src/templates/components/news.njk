@@ -1,0 +1,49 @@
+{%- macro swiperCarousel(slides) %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <div class="container">
+  <section class="news">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper content">
+        {%- for slide in slides %}
+          <div class="swiper-slide card">
+            <div class="card-content">
+               <div class="image">
+            <img src="images/slider.jpg" alt=""> 
+            </div>
+           <h2>Travel</h2>
+           <strong>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</strong>
+           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...</p>
+           <a href="">Read more</a>
+            </div>
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+     <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+{%- endmacro %}

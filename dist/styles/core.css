@@ -82,6 +82,9 @@ h1 {
   border: none;
   padding-right: 30px;
 }
+.header__right .input-group::-moz-placeholder {
+  border: none;
+}
 .header__right .input-group::placeholder {
   border: none;
 }
@@ -250,4 +253,73 @@ section.about .title.is-primary .green-first-word {
 section.about .main-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.navigations {
+  position: relative;
+}
+.navigations .section__content .navigations__wrapper .navigations__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+.navigations .section__content .navigations__wrapper .navigations__list .navigation-block__item {
+  list-style: none;
+}
+
+.navigation-item {
+  background-color: #000;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  margin: 0 8px;
+  padding: 54px 57px;
+}
+.navigation-item img {
+  display: block;
+  fill: #156F66;
+}
+.navigation-item__text {
+  display: block;
+  padding-left: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.navigation-item__text .underline {
+  color: #fff;
+}
+.navigation-item__text span {
+  display: block;
+  line-height: 1.1;
+}
+.navigation-item__title-link:focus::after {
+  outline-offset: -3px;
+}
+
+section.news {
+  position: relative;
+}
+section.news .swiper {
+  width: 100%;
+}
+section.news .swiper .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: -30px;
+  padding: 30px;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+}
+section.news .swiper .card-content .image {
+  height: 300px;
+  width: 326px;
+  padding: 3px;
+}
+section.news .swiper .card-content .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

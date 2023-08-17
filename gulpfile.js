@@ -9,7 +9,6 @@ const webpack = require('webpack-stream');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
 
-
 //js
 function js() {
   return src('src/*.js')
