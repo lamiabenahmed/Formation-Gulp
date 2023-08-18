@@ -6,6 +6,7 @@
         {{ titre | safe }}
         </h3>
       <div class="main-wrapper">
+        <div class="about-focus">
         <div class="custom-wrapper is-image">
           <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
             <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
@@ -20,7 +21,8 @@
             {{ mainContent('<h2>At vero eos et accusam et justo duo dolores et ea rebum.</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
 
           </div>
-        </div>
+        </div>  </div>
+        <div class="custom-focus">
         <div class="custom-wrapper is-main">
           <div class="rte">
             {{ mainContent('<h2>Stet clita kasd gubergren, no sea takimata sanctus est</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
@@ -35,7 +37,7 @@
               </picture>
             </a>
           </figure>
-        </div>
+        </div></div>
       </div>
     </div>
     </section>

@@ -28,6 +28,10 @@
   {%- set params = defaultParams  %}
   <section class="navigations">
     <div class = "container">
+        {% set titre = '<span class="green-first-word">S</span>ervices' %}
+      <h3 class="title is-primary">
+        {{ titre | safe }}
+        </h3>
     <h2 class="ghost">{{ titleText }}</h2>
     <div class="section__content">
         {% if params.type === 'list' %}

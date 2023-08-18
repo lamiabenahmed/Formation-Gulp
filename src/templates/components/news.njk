@@ -1,10 +1,11 @@
 {%- macro swiperCarousel(slides) %}
- <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-/>
-  <div class="container">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <section class="news">
+      <div class="container">
+       {% set titre = '<span class="green-first-word">N</span>ews' %}
+      <h3 class="title is-primary">
+        {{ titre | safe }}
+        </h3>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper content">
           {%- for slide in slides %}
@@ -13,64 +14,29 @@
                 <div class="image">
                   <img src="{{ slide.image }}" alt=""> 
                 </div>
+                <div class="content_item">
                 <h2>{{ slide.name }}</h2>
                 <strong>{{ slide.description }}</strong>
                 <p>{{ slide.details }}</p>
                 <a href="{{ slide.link }}">Read more</a>
-              </div>
+              </div>  </div>
             </div>
           {%- endfor %}
-          <!-- Ajoutez trois autres éléments swiper-slide ici -->
-          <div class="swiper-slide card">
-            <div class="card-content">
-                <div class="image">
-                  <img src="{{ slide.image }}" alt=""> 
-                </div>
-                <h2>{{ slide.name }}</h2>
-                <strong>{{ slide.description }}</strong>
-                <p>{{ slide.details }}</p>
-                <a href="{{ slide.link }}">Read more</a>
-              </div>
-          </div>
-          <div class="swiper-slide card">
-             <div class="card-content">
-                <div class="image">
-                  <img src="{{ slide.image }}" alt=""> 
-                </div>
-                <h2>{{ slide.name }}</h2>
-                <strong>{{ slide.description }}</strong>
-                <p>{{ slide.details }}</p>
-                <a href="{{ slide.link }}">Read more</a>
-              </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-                <div class="image">
-                  <img src="{{ slide.image }}" alt=""> 
-                </div>
-                <h2>{{ slide.name }}</h2>
-                <strong>{{ slide.description }}</strong>
-                <p>{{ slide.details }}</p>
-                <a href="{{ slide.link }}">Read more</a>
-              </div>
-          </div>
-              <div class="swiper-slide card">
-            <div class="card-content">
-                <div class="image">
-                  <img src="{{ slide.image }}" alt=""> 
-                </div>
-                <h2>{{ slide.name }}</h2>
-                <strong>{{ slide.description }}</strong>
-                <p>{{ slide.details }}</p>
-                <a href="{{ slide.link }}">Read more</a>
-              </div>
-          </div>
         </div>
       </div>
-      <div class="swiper-button-next"></div>
+      
+<div class="section__more-links">
+  <a href="#" class="btn is-md-small js-tooltip" data-content="See all news">
+    <span aria-hidden="true" class="far fa-plus"></span>
+    <span class="btn__text">See all news</span>
+  </a>
+</div>
+
+       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
+       </div>
     </section>
-  </div>
+
   
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -79,9 +45,7 @@
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
       spaceBetween: 30,
-      slidesPerGroup: 3,
-      loop: true,
-      loopFillGroupWithBlank: true,
+      loop: false,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

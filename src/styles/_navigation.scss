@@ -4,13 +4,14 @@
   .section__content {
     .navigations__wrapper {
       .navigations__list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         grid-gap: 30px;
 
         .navigation-block {
           &__item {
             list-style: none;
+            width: 31%;
           }
         }
       }
