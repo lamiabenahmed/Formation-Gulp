@@ -1,35 +1,81 @@
 {%- macro swiperCarousel(slides) %}
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+ <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
   <div class="container">
-  <section class="news">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper content">
-        {%- for slide in slides %}
+    <section class="news">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper content">
+          {%- for slide in slides %}
+            <div class="swiper-slide card">
+              <div class="card-content">
+                <div class="image">
+                  <img src="{{ slide.image }}" alt=""> 
+                </div>
+                <h2>{{ slide.name }}</h2>
+                <strong>{{ slide.description }}</strong>
+                <p>{{ slide.details }}</p>
+                <a href="{{ slide.link }}">Read more</a>
+              </div>
+            </div>
+          {%- endfor %}
+          <!-- Ajoutez trois autres éléments swiper-slide ici -->
           <div class="swiper-slide card">
             <div class="card-content">
-               <div class="image">
-            <img src="images/slider.jpg" alt=""> 
-            </div>
-           <h2>Travel</h2>
-           <strong>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</strong>
-           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...</p>
-           <a href="">Read more</a>
-            </div>
+                <div class="image">
+                  <img src="{{ slide.image }}" alt=""> 
+                </div>
+                <h2>{{ slide.name }}</h2>
+                <strong>{{ slide.description }}</strong>
+                <p>{{ slide.details }}</p>
+                <a href="{{ slide.link }}">Read more</a>
+              </div>
           </div>
-        {%- endfor %}
+          <div class="swiper-slide card">
+             <div class="card-content">
+                <div class="image">
+                  <img src="{{ slide.image }}" alt=""> 
+                </div>
+                <h2>{{ slide.name }}</h2>
+                <strong>{{ slide.description }}</strong>
+                <p>{{ slide.details }}</p>
+                <a href="{{ slide.link }}">Read more</a>
+              </div>
+          </div>
+          <div class="swiper-slide card">
+            <div class="card-content">
+                <div class="image">
+                  <img src="{{ slide.image }}" alt=""> 
+                </div>
+                <h2>{{ slide.name }}</h2>
+                <strong>{{ slide.description }}</strong>
+                <p>{{ slide.details }}</p>
+                <a href="{{ slide.link }}">Read more</a>
+              </div>
+          </div>
+              <div class="swiper-slide card">
+            <div class="card-content">
+                <div class="image">
+                  <img src="{{ slide.image }}" alt=""> 
+                </div>
+                <h2>{{ slide.name }}</h2>
+                <strong>{{ slide.description }}</strong>
+                <p>{{ slide.details }}</p>
+                <a href="{{ slide.link }}">Read more</a>
+              </div>
+          </div>
+        </div>
       </div>
-    </div>
-     <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-    </div>
-  </section>
-
-
-
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </section>
+  </div>
+  
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
       spaceBetween: 30,
@@ -45,5 +91,7 @@
         prevEl: ".swiper-button-prev",
       },
     });
-  </script>
+  });
+</script>
+
 {%- endmacro %}

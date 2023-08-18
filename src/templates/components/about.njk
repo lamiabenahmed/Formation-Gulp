@@ -1,6 +1,6 @@
 {% macro combinedImageMacro(imageSrc, imageAlt, imageCaption, mainContentText, mainContentText2) %}
-  <div class="container">
     <section class="about">
+      <div class="container">
       {% set titre = '<span class="green-first-word">A</span>bout us' %}
       <h3 class="title is-primary">
         {{ titre | safe }}
@@ -38,6 +38,7 @@
         </div>
       </div>
     </div>
+    </section>
   {% endmacro %}
 
   {% macro mainContent(content) %}

@@ -3,6 +3,7 @@ section.news {
 
   .swiper {
     width: 100%;
+    transition: none !important;
 
     .card-content {
       display: flex;
@@ -26,5 +27,13 @@ section.news {
         }
       }
     }
+  }
+  .swiper-vertical > .swiper-wrapper {
+    flex-direction: inherit !important;
+    transforme: none !important;
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
+     transforme: none !important;
   }
 }

@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "sass": "^1.65.1",
-    "swiper": "^10.1.0"
+    "swiper": "^10.2.0"
   }
 }
