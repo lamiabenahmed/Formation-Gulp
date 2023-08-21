@@ -1,0 +1,36 @@
+{%- macro contactFormSection() %}
+<section class="contact">
+  <div class="container">
+       {% set titre = '<span class="green-first-word">C</span>ontact us' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+    <div class="contact_wrapper">
+      <div class="contact_image">
+        <img src="images/slider.jpg" alt="" >
+      </div>
+
+      <div class="contact_form">
+        <form>
+            <label for="email">Enter you e-mail:</label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="" value="" placeholder="Name">
+          </div>
+           <label for="email">How to contact you:</label>
+          <div class="form-group">
+            <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+          </div>
+            <label for="email">Your message:</label>
+          <div class="form-group">
+            <textarea class="form-message" name="" rows="3" placeholder="Message"></textarea>
+          </div>
+          <button class="btn btn-default" type="submit" name="button">
+             <span aria-hidden="true" class="far fa-light">
+                            <i class="fa-sharp fa-regular fa-eye"></i>
+                        </span>Sent a message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endmacro %}

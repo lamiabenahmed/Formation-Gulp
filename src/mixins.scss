@@ -12,6 +12,7 @@
     width: $width;
     height: $height;
   }
+
   // mixins.scss
 
 $breakpoints: (
@@ -48,4 +49,8 @@ $breakpoints: (
   vertical-align: middle;
 }
 
-  
+  @mixin on-event($event) {
+  &:#{nth($event, 1)} {
+    @content;
+  }
+}

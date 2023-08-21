@@ -1,0 +1,37 @@
+{%- macro customEventSectionWrapper(items) %}
+    <section class="event">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">E</span>vents' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <div class="content">
+                {%- for item in items %}
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="image">
+                                <img src="{{ item.image | default('image.jpg') }}" alt=""></div>
+                                <div class="content_item">
+                                    <h2 class="title is-primary">{{ item.title }}</h2>
+                                    <div class="date">{{ item.date }}</div>
+                                    <span class="underline">{{ item.description }}</span>
+                                    <p class="encadre_secondary">{{ item.details }}</p>
+                                    <div class="section__more-links">
+                                        <a href="{{ item.link }}" class="btn is-primary">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {%- endfor %}
+                </div>
+                <div class="section__more-links has-event">
+                    <a href="#" class="btn is-md-small" data-content="See all news">
+                        <span aria-hidden="true" class="far fa-light">
+                            <i class="fa-sharp fa-regular fa-eye"></i>
+                        </span>
+                        <span class="btn__text">See all events</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    {%- endmacro %}

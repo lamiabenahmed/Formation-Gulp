@@ -1,21 +1,22 @@
-
 //green color
-$color-1--1: #156F66 !default;
+$color-1--1: #156f66 !default;
 $color-1--2: #000 !default;
 $color-1--3: #fff !default;
+
+//gris color
+$color-2--1: #707070 !default;
+$color-2--2: #efefef !default;
+$color-2--3: #111111 !default;
+
 :root {
-     // Grey color
-     --color-1--1: #{$color-1--1}; 
-     --color-1--2: #{$color-1--2}; 
-     --color-1--3: #{$color-1--3}; 
-}
+  // Grey color
+  --color-1--1: #{$color-1--1};
+  --color-1--2: #{$color-1--2};
+  --color-1--3: #{$color-1--3};
 
-$typo-1: 'Poppins', Arial, Tahoma, sans-serif;
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/poppins.woff2') format('woff2'),
-         url('../fonts/poppins.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  //gris color
+  --color-2--1: #{$color-2--1};
+  --color-2--2: #{$color-2--2};
+  //fonts
+    --typo-1: 'Open Sans', Arial, Tahoma, sans-serif;
 }

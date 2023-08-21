@@ -1,0 +1,110 @@
+section.event {
+  position: relative;
+  margin: 100px 0;
+  z-index: 1;
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    .card {
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: -30px;
+        padding: 0;
+        position: relative;
+        z-index: 100;
+        text-align: center;
+        background: $color-2--2;
+        margin: 0;
+
+        .image {
+          img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .content_item {
+          position: relative;
+          background: $color-2--2;
+          padding: 28px 17px 30px;
+          text-align: left;
+
+          .title {
+            &.is-primary {
+              background: $color-2--2;
+              display: table;
+              margin: -49px auto 12px 0;
+              padding: 10px 20px;
+              border-radius: 50px;
+              font-size: 16px;
+              color: $color-2--3;
+              font-style: italic;
+              font-weight: normal;
+            }
+          }
+
+          .underline {
+            font-size: 24px;
+            padding-bottom: 15px;
+            font-weight: bold;
+          }
+
+          .encadre_secondary {
+            font-size: 20px;
+            margin: 15px 0;
+          }
+
+          .section__more-links {
+            .btn {
+              &.is-primary {
+                margin-top: 15px;
+                color: $color-2--3;
+                font-size: 20px;
+                font-style: italic;
+
+                @include on-event(hover) {
+                  color: $color-1--1;
+                }
+              }
+            }
+          }
+
+          .date {
+            font-size: 24px;
+            color: $color-1--1;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .section__more-links {
+    &.has-event {
+      margin: 30px auto;
+      display: table;
+      background-color: $color-1--1;
+      padding: 13px 33px;
+      border-radius: 50px;
+
+      .btn {
+        &.is-md-small {
+          text-decoration: none;
+          color: $color-1--3;
+        }
+      }
+
+      @include on-event(hover) {
+        background-color: $color-1--2;
+      }
+    }
+  }
+}
