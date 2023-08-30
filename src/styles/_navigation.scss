@@ -13,6 +13,14 @@
           &__item {
             list-style: none;
             width: 31%;
+
+            @include breakpoint-down(medium) {
+              width: 45%;
+            }
+            
+            @include breakpoint-down(small) {
+              width: 100%;
+            }
           }
         }
       }

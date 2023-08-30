@@ -3,7 +3,11 @@ section.news {
   margin: 100px 0;
 
   .container {
-    width: 936px;
+    width: 100%;
+
+    @include breakpoint-down(medium) {
+      width: 100%;
+    }
   }
 
   .swiper {
@@ -13,7 +17,6 @@ section.news {
     .card-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
       margin-right: -30px;
       padding: 0;
       position: relative;
@@ -78,11 +81,11 @@ section.news {
   }
 
   .swiper-button-prev {
-    @include absolute(50%, auto, null, 22%);
+    @include absolute(null, auto, null, null);
     @include size(50px, 50px);
     background: $color-1--1;
     border-radius: 50px;
-    transform: translateY(-50%);
+    transform: none;
 
     &::after {
       font-size: 20px;
@@ -91,11 +94,11 @@ section.news {
   }
 
   .swiper-button-next {
-    @include absolute(50%, 21%, null, auto);
+    @include absolute(null, null, null, auto);
     @include size(50px, 50px);
     background: $color-1--1;
     border-radius: 50px;
-    transform: translateY(-50%);
+    transform: none;
 
     &::after {
       font-size: 20px;
@@ -106,22 +109,23 @@ section.news {
   .section__more-links {
     &.has-news {
       margin: 30px auto;
-      display: table;
+      display: flex;
       background-color: $color-1--1;
-      padding: 13px 33px;
+      padding: 14px 33px;
       border-radius: 50px;
+      width: 190px;
 
-       .btn {
+      .btn {
         &.is-md-small {
           text-decoration: none;
           color: $color-1--3;
+          font-size: 16px;
         }
       }
 
-      
-    @include on-event(hover) {
-      background-color: $color-1--2;
-    }
+      @include on-event(hover) {
+        background-color: $color-1--2;
+      }
     }
   }
 }

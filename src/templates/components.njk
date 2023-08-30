@@ -1,0 +1,388 @@
+
+{%- macro Logo(imagePath) -%}
+    <div class="logo">
+        <img src="{{ imagePath }}" alt="Logo">
+    </div>
+{%- endmacro -%}
+
+{#
+ mobileMenu
+#}
+{% macro mobileMenu() %}
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#" class="mobile-menu__close" id="mobile-menu-close">Close
+            <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+{% endmacro %}
+
+{#
+ introSection
+#}
+{%- macro NavigationItem(
+	nameIcon = 'archery',
+	title = lorem(1, 'word'),
+	modifier = ''
+) -%}
+    <div class="navigation-item {{ modifier }}">
+        <a href="#" class="navigation-item__text">
+            <div class="navigation-item__svg-wrapper" aria-hidden="true">
+                <img src="images/{{nameIcon}}.svg" alt="" width="60" height="60">
+
+            </div>
+            <span class="underline">{{ title }}</span>
+        </a>
+    </div>
+{%- endmacro -%}
+{%- macro NavigationsHome(titleText, settings = {}) -%}
+    {%- set defaultParams = {
+    itemsData: [
+      ['navigations1', 'UI/UX <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Bug searching <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Data science <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', 'Webste dev <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</span>'],
+      ['navigations1', '24/7 support<span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor </span>']
+    ],
+    modifier: '',
+    type: 'list'
+  } -%}
+    {%- set params = defaultParams  %}
+    <section class="navigations">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">S</span>ervices' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <h2 class="ghost">{{ titleText }}</h2>
+            <div class="section__content">
+                {% if params.type === 'list' %}
+                    <nav class="navigations__wrapper">
+                        <ul class="navigations__list">
+                            {% for link in params.itemsData %}
+                                <li class="navigation-block__item">
+                                    <a href="#">
+                                        {{ NavigationItem(
+                      nameIcon = link[0],
+                      title = link[1]|safe
+                    ) }}
+
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{%- endmacro -%}
+
+{% macro headerContent() %}
+    <header class="header">
+        <div class="container">
+            <div class="header__left">
+                <div class="logo">
+                    <a href="index.njk"><img src="images/logo-1.png" height="29" width="80" alt=""></a>
+                </div>
+            </div>
+            <div class="header__right">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search..." aria-label="Search">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <a href="#" id="mobile-menu-trigger" class="header__right_mobile-menu-trigger">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <ul class="nav">
+                    {% set kMainNavBottom = [
+                        {
+                            'text': 'About us',
+                            'link': '#',
+                            'active': true
+                        }, {
+                            'text': 'Services',
+                            'link': '#'
+                        }, {
+                            'text': 'News',
+                            'link': '#',
+                            'disabled': true
+                        }, {
+                            'text': 'Events',
+                            'link': '#',
+                            'disabled': true
+                        }
+                    ] %}
+                    {% for item in kMainNavBottom %}
+                        <li class="nav__item{% if item.active %} active{% endif %}{% if item.disabled %} disabled{% endif %}">
+                            <a class="nav-link" href="{{ item.link }}">{{ item.text }}
+                                {% if item.active %}
+                                    <span class="sr-only">(current)</span>{% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </header>
+{% endmacro %}
+
+{%- macro swiperCarousel(slides) %}
+    <section class="news">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">N</span>ews' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper content">
+                    {%- for slide in slides %}
+                        <div class="swiper-slide card">
+                            <div class="card-content">
+                                <div class="image">
+                                    <img src="{{ slide.image }}" alt="">
+                                </div>
+                                <div class="content_item">
+                                    <h2 class="title is-primary">{{ slide.name }}</h2>
+                                    <span class="underline">{{ slide.description }}</span>
+                                    <p class="encadre_secondary">{{ slide.details }}</p>
+                                    <div class="section__more-links">
+                                        <a href="{{ slide.link }}" class="btn is-primary">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {%- endfor %}
+                </div>
+            </div>
+
+            <div class="section__more-links has-news">
+                <a href="#" class="btn is-md-small" data-content="See all news">
+                    <span aria-hidden="true" class="far fa-light">
+                        <i class="fa-sharp fa-regular fa-eye"></i>
+                    </span>
+                    <span class="btn__text">See all news</span>
+                </a>
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+{%- endmacro %}
+
+{%- macro SvgIcon(iconName, width, height) -%}
+    <svg width="{{ width }}" height="{{ height }}" viewbox="0 0 {{ width }} {{ height }}">
+        <use xlink:href="#{{ iconName }}"></use>
+    </svg>
+{%- endmacro -%}
+
+{%- macro introSection(introTitle, introSubtitle, introButtonText) %}
+    <section class="intro" style="background-image: url(images/slider.jpg);">
+        <div class="container">
+            <div class="intro__content">
+                <h6>{{ introTitle }}</h6>
+                <h1>{{ introSubtitle }}</h1>
+            </div>
+        </div>
+    </section>
+{%- endmacro %}
+
+{% macro combinedImageMacro(imageSrc, imageAlt, imageCaption, mainContentText, mainContentText2) %}
+    <section class="about">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">A</span>bout us' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <div class="main-wrapper">
+                <div class="about-focus">
+                    <div class="custom-wrapper is-image">
+                        <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+                            <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+                                <picture>
+                                    <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+                                </picture>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="custom-wrapper is-main">
+                        <div class="rte">
+                            {{ mainContent('<h2>At vero eos et accusam et justo duo dolores et ea rebum.</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-focus">
+                    <div class="custom-wrapper is-main">
+                        <div class="rte">
+                            {{ mainContent('<h2>Stet clita kasd gubergren, no sea takimata sanctus est</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
+
+                        </div>
+                    </div>
+                    <div class="custom-wrapper is-image">
+                        <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+                            <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+                                <picture>
+                                    <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+                                </picture>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro mainContent(content) %}
+    <div class="site-content is-main">
+        <div class="rte">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endmacro %}
+
+{%- macro contactFormSection() %}
+    <section class="contact">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">C</span>ontact us' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <div class="contact_wrapper">
+                <div class="contact_image">
+                    <img src="images/slider.jpg" alt="">
+                </div>
+
+                <div class="contact_form">
+                    <form>
+                        <label for="email">Enter you e-mail:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" value="" placeholder="Name">
+                        </div>
+                        <label for="email">How to contact you:</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+                        </div>
+                        <label for="email">Your message:</label>
+                        <div class="form-group">
+                            <textarea class="form-message" name="" rows="3" placeholder="Message"></textarea>
+                        </div>
+                        <button class="btn btn-default" type="submit" name="button">
+                            <span aria-hidden="true" class="far fa-light">
+                                <i class="fa-sharp fa-regular fa-eye"></i>
+                            </span>Sent a message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{%- endmacro %}
+
+{%- macro customEventSectionWrapper(items) %}
+    <section class="event">
+        <div class="container">
+            {% set titre = '<span class="green-first-word">E</span>vents' %}
+            <h3 class="title is-primary">
+                {{ titre | safe }}
+            </h3>
+            <div class="content">
+                {%- for item in items %}
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="image">
+                                <img src="{{ item.image | default('image.jpg') }}" alt=""></div>
+                            <div class="content_item">
+                                <h2 class="title is-primary">{{ item.title }}</h2>
+                                <div class="date">{{ item.date }}</div>
+                                <span class="underline">{{ item.description }}</span>
+                                <p class="encadre_secondary">{{ item.details }}</p>
+                                <div class="section__more-links">
+                                    <a href="{{ item.link }}" class="btn is-primary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {%- endfor %}
+            </div>
+            <div class="section__more-links has-event">
+                <a href="#" class="btn is-md-small" data-content="See all news">
+                    <span aria-hidden="true" class="far fa-light">
+                        <i class="fa-sharp fa-regular fa-eye"></i>
+                    </span>
+                    <span class="btn__text">See all events</span>
+                </a>
+            </div>
+        </div>
+    </section>
+{%- endmacro %}
+
+{%- macro SiteInfo(
+    isHome = false,
+    isInverted = false
+) -%}
+    <section class="footer_wrapper">
+        <div class="container">
+        <h2 class="ghost"></h2>
+        <div class="footer__column">
+            <div class="footer__image">
+                <div class="logo">
+                   {{ Logo('images/logo-1.png') }}
+                </div>
+            </div>
+              <address class="footer__content">
+                <p class="footer__item is-name">Nom du client lorem ipsum dolor sit amet</p>
+                <p class="footer__item is-schedule">
+                    <span class="ghost">Horaires:</span>
+                    <span>Lundi au vendredi de 9 heures à 13 heures et de 14 heures à 17 heures.</span>
+                </p>
+                <p class="footer__item is-address">
+                    <span class="fa-regular fa-envelope" aria-hidden="true"></span>
+                    <span class="ghost">Adresse:</span>
+                    <span>00 Rue dolor sit amet, 123456 Villeloremipsum</span>
+                </p>
+                <p class="footer__item is-phone">
+                    <span class="fa-regular fa-phone-flip" aria-hidden="true"></span>
+                    <span class="ghost">Tél.:</span>
+                    <a href="tel:0000000000" title="Téléphone 01 23 45 67 89 gestionnaire d'appel" aria-label="Téléphone 01 23 45 67 89 gestionnaire d'appel">01 23 45 67 89</a>
+                </p>
+            </address>
+<div class="nav_footer">
+<div class="menu_nav">
+ <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+</div>
+	<div class="footer_social">
+				{{SocialIcons()}}
+				</div>
+</div>
+        </div>  </div>
+    </section>
+{%- endmacro -%}
+

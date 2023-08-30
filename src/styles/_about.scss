@@ -2,14 +2,37 @@ section.about {
   margin: 80px 0;
   position: relative;
 
-  .about-focus,
-  .custom-focus {
-    display: flex;
-    column-gap: 30px;
-    margin: 0 0 30px;
+  .main-wrapper {
+    picture {
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
 
-    .rte h2 {
-      margin-bottom: 15px;
+    .site__content {
+      .rte h2 {
+        font-size: 26px;
+
+         @include breakpoint-down(small) {
+          font-size: 20px;
+        }
+      }
+
+      .encadre {
+        &__secondary {
+          font-size: 20px;
+
+           @include breakpoint-down(small) {
+          font-size: 16px;
+        }
+        }
+      }
+    }
+
+    .custom-focus {
+      margin-top: 36px;
     }
   }
 }

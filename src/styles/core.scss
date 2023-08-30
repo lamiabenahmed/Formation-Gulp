@@ -1,0 +1,81 @@
+$include-column-box-sizing: true !default;
+
+@import "./mixins/breakpoints";
+@import "./mixins/functions";
+@import "./mixins/variables";
+@import "./mixins/grid";
+@import "./mixins/utilities";
+@import "./utilities";
+@import "./config";
+@import "./contact";
+@import './about';
+@import "./header";
+@import "./nav";
+@import "./navigation";
+@import "./intro";
+@import "./event";
+@import "./navigation-item";
+@import "./mobile-menu";
+@import "./mobile";
+@import "./news";
+@import './container';
+@import './footer';
+@import './go-to-top';
+
+.container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 40px;
+    width: 100%;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+@import "grid";
+
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    "display",
+    "order",
+    "flex",
+    "flex-direction",
+    "flex-grow",
+    "flex-shrink",
+    "flex-wrap",
+    "justify-content",
+    "align-items",
+    "align-content",
+    "align-self",
+    "margin",
+    "margin-x",
+    "margin-y",
+    "margin-top",
+    "margin-end",
+    "margin-bottom",
+    "margin-start",
+    "negative-margin",
+    "negative-margin-x",
+    "negative-margin-y",
+    "negative-margin-top",
+    "negative-margin-end",
+    "negative-margin-bottom",
+    "negative-margin-start",
+    "padding",
+    "padding-x",
+    "padding-y",
+    "padding-top",
+    "padding-end",
+    "padding-bottom",
+    "padding-start",
+  )
+);

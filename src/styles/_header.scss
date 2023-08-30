@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   &__right {
@@ -28,7 +29,6 @@
       @include breakpoint-down(medium) {
         display: block;
       }
-      
     }
 
     .input-group {
@@ -55,8 +55,6 @@
       &::placeholder {
         border: none;
       }
-
-      
     }
   }
 
@@ -68,6 +66,8 @@
       flex: 1 0 100px;
       min-height: 29px;
       padding: 0;
+      width: 83px;
+      height: 29px;
     }
   }
 }

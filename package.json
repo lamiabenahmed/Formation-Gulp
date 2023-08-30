@@ -25,6 +25,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
+    "gulp-watch": "^5.0.1",
     "gulp-webpack": "^1.5.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",

@@ -10,10 +10,13 @@
 }
 
 body {
-  margin: 0;
-  font-family: var(--typo-1);
-  color: $color-1--2;
-  font-weight: normal;
+    background: #fff;
+    color: #000;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+    font-family: var(--typo-1);
+    font-size: 1.8rem;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .title {
@@ -23,8 +26,16 @@ body {
     display: table;
     margin: 0 auto 30px;
 
+     @include breakpoint-down(small) {
+          font-size: 34px;
+        }
+
     .green-first-word {
       color: $color-1--1;
+
+       @include breakpoint-down(small) {
+          font-size: 34px;
+        }
     }
   }
 }

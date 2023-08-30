@@ -1,0 +1,90 @@
+// Utilities
+
+$utilities: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-merge(
+  (
+    // Gap utility
+    "gap": (
+      responsive: true,
+      property: gap,
+      class: gap,
+      values: $spacers
+    ),
+    "row-gap": (
+      responsive: true,
+      property: row-gap,
+      class: row-gap,
+      values: $spacers
+    ),
+    "column-gap": (
+      responsive: true,
+      property: column-gap,
+      class: column-gap,
+      values: $spacers
+    ),
+
+    "z-index": (
+      property: z-index,
+      class: z,
+      values: $zindex-levels,
+    )
+    // scss-docs-end utils-zindex
+  ),
+  $utilities
+);
+
+@mixin absolute($top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+  }
+
+  // mixins.scss
+
+$breakpoints: (
+    small: 576px,
+    medium: 768px,
+    large: 992px,
+    xlarge: 1200px,
+  );
+  
+  @mixin breakpoint($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-down($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+ // Mixin pour le style des icônes Font Awesome
+@mixin fa-icon-style-center() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+@mixin fa-icon-style-start() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  vertical-align: middle;
+}
+
+  @mixin on-event($event) {
+  &:#{nth($event, 1)} {
+    @content;
+  }
+}

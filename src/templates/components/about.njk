@@ -1,52 +1,55 @@
 {% macro combinedImageMacro(imageSrc, imageAlt, imageCaption, mainContentText, mainContentText2) %}
-    <section class="about">
-      <div class="container">
+  <section class="about">
+    <div class="container">
       {% set titre = '<span class="green-first-word">A</span>bout us' %}
       <h3 class="title is-primary">
         {{ titre | safe }}
-        </h3>
+      </h3>
       <div class="main-wrapper">
-        <div class="about-focus">
-        <div class="custom-wrapper is-image">
-          <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
-            <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
-              <picture>
-                <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
-              </picture>
-            </a>
-          </figure>
-        </div>
-        <div class="custom-wrapper is-main">
-          <div class="rte">
-            {{ mainContent('<h2>At vero eos et accusam et justo duo dolores et ea rebum.</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
-
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+          <div class="custom-wrapper is-image">
+            <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+              <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+                <picture>
+                  <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+                </picture>
+              </a>
+            </figure>
+          </div> </div>
+          <div class="col-md-8 col-sm-12">
+      
+              {{ mainContent('<h2>At vero eos et accusam et justo duo dolores et ea rebum.</h2><p class="encadre__secondary">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
           </div>
-        </div>  </div>
+        </div>
         <div class="custom-focus">
-        <div class="custom-wrapper is-main">
-          <div class="rte">
-            {{ mainContent('<h2>Stet clita kasd gubergren, no sea takimata sanctus est</h2><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
-
-          </div>
+            <div class="row">
+              <div class="col-md-8 col-sm-12">
+               <div class="custom-wrapper is-image">
+        
+              {{ mainContent('<h2>Stet clita kasd gubergren, no sea takimata sanctus est</h2><p class="encadre__secondary">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>') | safe }}
+          </div></div>
+          <div class="col-md-4 col-sm-12">
+           <div class="custom-wrapper is-main">
+          <div class="custom-wrapper is-image">
+            <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
+              <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
+                <picture>
+                  <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
+                </picture>
+              </a>
+            </figure>
+          </div> </div></div></div>
         </div>
-        <div class="custom-wrapper is-image">
-          <figure class="ce-gallery" role="figure" aria-label="{{ imageCaption | safe }}">
-            <a href="{{ imageSrc }}" class="fancybox" data-fancybox="gallery-id-9ja3tbifbq5" aria-haspopup="dialog" data-caption="{{ imageCaption | safe }}" data-dialog-label="Image agrandie" data-alt="{{ imageAlt }}" role="button">
-              <picture>
-                <img data-error-src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22267%22%20viewBox=%220%200%20400%20267%22%20/%3E" data-src="{{ imageSrc }}" src="{{ imageSrc }}" width="400" height="267" alt="{{ imageAlt }} - Agrandir l'image, fenêtre modale" class="lazy lazyloaded">
-              </picture>
-            </a>
-          </figure>
-        </div></div>
       </div>
     </div>
-    </section>
-  {% endmacro %}
+  </section>
+{% endmacro %}
 
-  {% macro mainContent(content) %}
-    <div class="site-content is-main">
-      <div class="rte">
-        {{ content | safe }}
-      </div>
+{% macro mainContent(content) %}
+  <div class="site__content is-main">
+    <div class="rte">
+      {{ content | safe }}
     </div>
-  {% endmacro %}
+  </div>
+{% endmacro %}

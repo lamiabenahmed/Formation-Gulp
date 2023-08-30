@@ -1,0 +1,18 @@
+.go-to-top {
+  background-color: $color-1--4;
+  border-radius: 50px;
+   bottom: 20px;
+   border: 1px solid $color-1--4;
+  color: $color-1--3;
+  cursor: pointer;
+  display: block;
+  position: fixed;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.go-to-top:hover {
+  background-color: $color-1--2;
+}

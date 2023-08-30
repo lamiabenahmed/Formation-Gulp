@@ -3,13 +3,26 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
-const { src, dest, watch, series } = require('gulp');
+const { src, dest, watch, series } = require('gulp'); // Utilisez 'watch' seulement une fois
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
 
-//js
+// Tâche styles
+gulp.task('styles', function () {
+  return gulp.src('src/styles/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('dist/styles'));
+});
+
+// Tâche watch pour les styles
+gulp.task('watch-styles', function () {
+  watch('src/styles/**/*.scss', gulp.series('styles'));
+});
+
+// Tâche JS
 function js() {
   return src('src/*.js')
     .pipe(babel({
@@ -26,7 +39,8 @@ function js() {
     .pipe(browserSync.stream());
 }
 
-function watchFiles() {
+// Tâche watch pour les fichiers JS
+function watchJs() {
   browserSync.init({
     server: {
       baseDir: './dist'
@@ -36,9 +50,7 @@ function watchFiles() {
   watch('*.html').on('change', browserSync.reload);
 }
 
-exports.default = series(js, watchFiles);
-// Process Nunjucks templates
-
+// Tâche pour les templates Nunjucks
 gulp.task('html', () => {
   return gulp
     .src('src/templates/*.njk')
@@ -49,71 +61,39 @@ gulp.task('html', () => {
     )
     .pipe(gulp.dest('dist'));
 });
-////mixins
+
+// Tâche pour copier les mixins
 gulp.task('copyMixins', function () {
   return gulp.src('src/mixins.scss').pipe(gulp.dest('dist'));
 });
-gulp.task('default', gulp.series('copyMixins'));
-///core
+
+// Tâche pour copier le core SCSS
 gulp.task('copyCoreSCSS', function () {
   return gulp.src('src/core.scss').pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', gulp.series('copyCoreSCSS'));
-// Copy fonts
+// Tâche pour copier les fonts
 gulp.task('copy-fonts', () => {
   return gulp.src('src/fonts/**/*').pipe(gulp.dest('dist/fonts'));
 });
 
-// Copy images
+// Tâche pour copier les images
 gulp.task('copy-images', () => {
   return gulp.src('src/images/**/*').pipe(gulp.dest('dist/images'));
 });
 
-//Process SCSS styles
-gulp.task('styles', () => {
-  return gulp
-    .src('*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('dist/styles'));
-});
-
-gulp.task('build-styles', function () {
-
-  return gulp.src('./*.scss')
-
-    .pipe(sass().on('error', sass.logError))
-
-    .pipe(gulp.dest('./dist/styles'));
-
-});
-
-// Serve the page and watch for changes
+// Tâche serve pour la synchronisation
 gulp.task('serve', () => {
   browserSync.init({
     server: 'dist',
   });
 
   gulp.watch('src/templates/**/*.njk', gulp.series('html'));
-  gulp.watch('src/styles/**/*.scss', gulp.series('build-styles'));
+  gulp.watch('src/styles/**/*.scss', gulp.series('styles'));
 });
 
-// Generate Nunjucks HTML files
-gulp.task('nunjucks-html', function () {
-  return gulp
-    .src('./src/*.njk')
-    .pipe(
-      nunjucksRender({
-        path: ['./src'],
-        ext: '.html',
-      })
-    )
-    .pipe(gulp.dest('./dist'));
-});
-
-// Default task: Run 'serve', 'html', 'styles', 'copy-fonts', 'copy-images' when Gulp is run without any task
+// Tâche par défaut
 gulp.task(
   'default',
-  gulp.series('serve', 'html', 'styles', 'copy-fonts', 'copy-images')
+  gulp.series('styles', 'watch-styles', 'serve', 'html', 'copy-fonts', 'copy-images', 'copyMixins', 'copyCoreSCSS')
 );

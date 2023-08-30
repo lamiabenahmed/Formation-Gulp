@@ -1,11 +1,10 @@
 {%- macro swiperCarousel(slides) %}
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <section class="news">
-      <div class="container">
-       {% set titre = '<span class="green-first-word">N</span>ews' %}
+  <section class="news">
+    <div class="container">
+      {% set titre = '<span class="green-first-word">N</span>ews' %}
       <h3 class="title is-primary">
         {{ titre | safe }}
-        </h3>
+      </h3>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper content">
           {%- for slide in slides %}
@@ -15,49 +14,27 @@
                   <img src="{{ slide.image }}" alt=""> 
                 </div>
                 <div class="content_item">
-                <h2 class="title is-primary">{{ slide.name }}</h2>
-                <span class="underline" >{{ slide.description }}</span>
-                <p class="encadre_secondary">{{ slide.details }}</p>
-                <div class="section__more-links">
-                <a href="{{ slide.link }}" class="btn is-primary">Read more</a>
+                  <h2 class="title is-primary">{{ slide.name }}</h2>
+                  <span class="underline">{{ slide.description }}</span>
+                  <p class="encadre_secondary">{{ slide.details }}</p>
+                  <div class="section__more-links">
+                    <a href="{{ slide.link }}" class="btn is-primary">Read more</a>
+                  </div>
                 </div>
-              </div>  </div>
+              </div>
             </div>
           {%- endfor %}
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
       
-<div class="section__more-links has-news">
-  <a href="#" class="btn is-md-small" data-content="See all news">
-    <span aria-hidden="true" class="far fa-light"><i class="fa-sharp fa-regular fa-eye"></i></span>
-    <span class="btn__text">See all news</span>
-  </a>
-</div>
-
-       <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-       </div>
-    </section>
-
-  
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      loop: false,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  });
-</script>
-
+      <div class="section__more-links has-news">
+        <a href="#" class="btn is-md-small" data-content="See all news">
+          <span aria-hidden="true" class="far fa-light"><i class="fa-sharp fa-regular fa-eye"></i></span>
+          <span class="btn__text">See all news</span>
+        </a>
+      </div>
+    </div>
+  </section>
 {%- endmacro %}

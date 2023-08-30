@@ -5,18 +5,19 @@
 {%- from "components/news.njk" import swiperCarousel -%}
 {%- from "components/event.njk" import customEventSectionWrapper -%}
 {%- from "components/contact.njk" import contactFormSection -%}
-
+{%- from "components/footer.njk" import SiteInfo -%}
+{%- from "components/go-to-top.njk" import goToTopButton -%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles/core.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet">
@@ -28,20 +29,56 @@
       {{ introSection("H1 Lorem ipsum dolor sit", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.") }}
       {{ combinedImageMacro("//ph.stratis.pro/img/380/300/E0E0E0","[IMAGE ALT]") }}
       {{ NavigationsHome() }}
-      {# Slider Content #}
       {{ swiperCarousel([
       { 'image': '//ph.stratis.pro/img/326/300/E0E0E0', 'name': 'Travel', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'Read more' },
       { 'image': '//ph.stratis.pro/img/326/300/E0E0E0', 'name': 'Politics', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'Read more' },
       { 'image': '//ph.stratis.pro/img/326/300/E0E0E0', 'name': 'Business', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'Read more' },
       { 'image': 'images/slider.jpg', 'name': 'Business', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'Read more' }
     ]) }}
-   {{ customEventSectionWrapper([
+      {{ customEventSectionWrapper([
     { 'image': '//ph.stratis.pro/img/380/300/E0E0E0', 'title': 'Culture', 'date': '12.06 > 13.06', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'item1-link' },
   { 'image': '//ph.stratis.pro/img/380/300/E0E0E0', 'title': 'Technologies', 'date': '26.10 > 30.10', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'item2-link' },
   { 'image': '//ph.stratis.pro/img/380/300/E0E0E0', 'title': 'Business', 'date': '08.12 > 19.12', 'description': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr', 'details': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor...', 'link': 'item3-link' }
   ]) }}
-  {{ contactFormSection() }}
+      {{ contactFormSection() }}
+      {{ SiteInfo() }}
+      {{ goToTopButton() }}
     {% endblock %}
-    <script src="main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          loop: false,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          }
+        });
+      });
+    </script>
+    <script>
+let mybutton = document.getElementById("myBtn");// Get the button
+window.onscroll = function() {scrollFunction()};// When the user scrolls down 20px from the top of the document, show the button
+function scrollFunction() {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+    <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>

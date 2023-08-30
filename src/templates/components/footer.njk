@@ -1,0 +1,46 @@
+{%- from "components/logo.njk" import Logo -%}
+{%- from "components/social.njk" import SocialIcons -%}
+{%- macro SiteInfo(
+    isHome = false,
+    isInverted = false
+) -%}
+    <section class="footer_wrapper">
+        <div class="container">
+            <h2 class="ghost"></h2>
+            <div class="footer__column">
+                <div class="footer__image">
+                    <div class="logo">
+                        {{ Logo('images/image.png') }}
+                    </div>
+                </div>
+                <address class="footer__content">
+                    <p class="footer__item is-name">OSI TEST PROJECT</p>
+                    <p class="footer__item is-schedule">
+                        <span>2 place Hôtel de Ville Jacques - Chirac 77100 Meaux</span>
+                    </p>
+                </address>
+                <div class="nav_footer">
+                    <div class="menu_nav">
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">About us</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                            <li>
+                                <a href="#">Events</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer_social">
+                        {{ SocialIcons() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{%- endmacro -%}
